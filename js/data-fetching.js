@@ -1,52 +1,9 @@
-// import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-// import { getFirestore, collection, onSnapshot, enableIndexedDbPersistence } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-// import firebaseConfig from './firebase-config.js';  // Changed to default import
-
-// const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
-
-// // Move your data fetching logic here temporarily for testing
-// export function fetchAndDisplayData() {
-//     const dataList = document.getElementById('data-list');
-
-//     if (!dataList) {
-//         console.error('Data list element not found');
-//         return;
-//     }
-
-//     enableIndexedDbPersistence(db)
-//         .catch((err) => {
-//             if (err.code === 'failed-precondition') {
-//                 console.error('Multiple tabs open. Offline persistence can only be enabled in one tab at a time.');
-//             } else if (err.code === 'unimplemented') {
-//                 console.error('The current browser does not support offline persistence.');
-//             }
-//         });
-
-//     const collectionRef = collection(db, 'libraries');
-//     onSnapshot(collectionRef, (snapshot) => {
-//         dataList.innerHTML = '';
-
-//         snapshot.forEach((doc) => {
-//             const data = doc.data();
-//             const dataItem = document.createElement('div');
-//             dataItem.classList.add('data-item');
-//             dataItem.textContent = `ID: ${doc.id}, Name: ${data.name}, Developer: ${data.developer}`;
-//             dataList.appendChild(dataItem);
-//         });
-//     });
-// }
-
-// fetchAndDisplayData(); // Run function when script loads
-
-//line baru
-
 import {
   getFirestore, collection, getDocs, enableIndexedDbPersistence
 } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import firebaseConfig from './firebase-config.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-
+import { setupSearch } from './main.js'; // <-- this line is added
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -114,7 +71,7 @@ export async function fetchAndDisplayLibraries() {
     });
 
     // Initialize filter functionality after cards are loaded
-    setupFilters();
+    //setupFilters();
     setupSearch(); // Make sure search works with the new structure
   } catch (err) {
     console.error('Error loading libraries:', err);
