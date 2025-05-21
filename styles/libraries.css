@@ -1,0 +1,514 @@
+/* ================================
+   Global Styles
+================================== */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #1a252f;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* ================================
+   Libraries Page Styles
+================================== */
+.libraries-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.libraries-page .filter-toggle-btn {
+    background-color: #0f172a;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.libraries-page .filter-toggle-btn:hover {
+    background-color: #1e293b;
+}
+
+.libraries-page #filterPanel {
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    max-height: 0;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    padding: 0 1rem 0 1rem;
+    margin-bottom: 20px;
+}
+
+.libraries-page #filterPanel.open {
+    max-height: 500px;
+    padding: 1rem;
+}
+
+.libraries-page .filter-section {
+    margin-bottom: 1.5rem;
+}
+
+.libraries-page .filter-section h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.libraries-page .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.libraries-page .filter-btn {
+    padding: 0.5rem 1rem;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    color: #495057;
+    font-weight: 500;
+}
+
+.libraries-page .filter-btn:hover {
+    background: #e9ecef;
+    border-color: #ced4da;
+}
+
+.libraries-page .filter-btn.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
+}
+
+.libraries-page .filter-btn.active:hover {
+    background: #2980b9;
+    border-color: #2980b9;
+}
+
+.libraries-page .filter-btn[data-filter="kyber"].active {
+    background: #9b59b6;
+    border-color: #9b59b6;
+}
+
+.libraries-page .filter-btn[data-filter="dilithium"].active {
+    background: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.libraries-page .filter-btn[data-filter="sphincs"].active {
+    background: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.libraries-page .clear-filters {
+    padding: 0.5rem 1rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+}
+
+.libraries-page .clear-filters:hover {
+    background: #c82333;
+}
+
+.libraries-page .algorithm-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.libraries-page .algorithm-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #f8f9fa;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.libraries-page .loading,
+.libraries-page .error,
+.libraries-page .no-results {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.libraries-page .error {
+    color: #dc3545;
+}
+
+.libraries-page .no-results {
+    color: #6c757d;
+}
+
+.libraries-page .hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 8rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.libraries-page .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.libraries-page .hero h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.libraries-page .hero .tagline {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+}
+
+.libraries-page .hero .cta-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.libraries-page .hero-content .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.libraries-page .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.libraries-page .hero-content p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.libraries-page nav {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: white;
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.libraries-page .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.libraries-page .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.libraries-page .logo-icon {
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.libraries-page .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.libraries-page .nav-links li {
+    margin-left: 2rem;
+}
+
+.libraries-page .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.libraries-page .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.libraries-page .nav-links a:hover::after {
+    width: 100%;
+}
+
+.libraries-page .nav-links a.active {
+    color: var(--secondary-color);
+}
+
+.libraries-page header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.libraries-page header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Q50,80 0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat bottom center;
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.libraries-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.libraries-page .tagline {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.libraries-page .main-content {
+    padding: 3rem 0;
+}
+
+.libraries-page .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.libraries-page .feature-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.libraries-page .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.libraries-page .feature-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.libraries-page .feature-card p {
+    color: #555;
+}
+
+.libraries-page .feature-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--secondary-color);
+    transform: scaleX(0);
+    transition: var(--transition);
+    transform-origin: left;
+}
+
+.libraries-page .feature-card:hover::after {
+    transform: scaleX(1);
+}
+
+.libraries-page .search-container {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    position: relative;
+}
+
+.libraries-page #search-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: var(--transition);
+    padding-left: 3rem;
+}
+
+.libraries-page #search-input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.libraries-page .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.libraries-page .knowledge-level {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.libraries-page .level-btn {
+    padding: 0.5rem 1.5rem;
+    background: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.libraries-page .level-btn:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.libraries-page .level-btn:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.libraries-page .level-btn.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.libraries-page .level-btn:hover:not(.active) {
+    background: #f1f1f1;
+}
+
+.libraries-page .hidden {
+    display: none;
+}
+
+.libraries-page .animated-text {
+    display: inline-block;
+}
+
+.libraries-page .crypto-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.libraries-page footer {
+    background: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.libraries-page .copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .libraries-page h1 {
+        font-size: 2rem;
+    }
+
+    .libraries-page .tagline {
+        font-size: 1rem;
+    }
+
+    .libraries-page .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+.libraries-page .library-details {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.libraries-page .library-details p {
+    margin: 0.3rem 0;
+}
