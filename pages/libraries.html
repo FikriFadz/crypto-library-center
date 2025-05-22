@@ -42,10 +42,45 @@
     <div class="main-content">
         <div class="container">
             <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search for cryptography topics...">
-                <button class="filter-icon"><i class="fas fa-filter"></i></button>
+                <div class="search-filter-group">
+                    <input type="text" id="search-input" placeholder="Search for cryptography topics...">
+                </div>
             </div>
-            <div class="features"></div>
+            <div class="row">
+                <!-- Sidebar Filter -->
+                <aside class="sidebar">
+                    <h4>PQC Algorithm Filter</h4>
+                    <div class="pqc-filter-group">
+                        <label for="filter-kyber" class="pqc-filter-label">
+                            <input type="checkbox" id="filter-kyber" class="pqc-filter-checkbox pqc-filter"
+                                value="kyber">
+                            Kyber
+                        </label>
+                        <label for="filter-dilithium" class="pqc-filter-label">
+                            <input type="checkbox" id="filter-dilithium" class="pqc-filter-checkbox pqc-filter"
+                                value="dilithium">
+                            Dilithium
+                        </label>
+                        <label for="filter-sphincs" class="pqc-filter-label">
+                            <input type="checkbox" id="filter-sphincs" class="pqc-filter-checkbox pqc-filter"
+                                value="sphincs+">
+                            SPHINCS+
+                        </label>
+                        <label for="filter-falcon" class="pqc-filter-label">
+                            <input type="checkbox" id="filter-falcon" class="pqc-filter-checkbox pqc-filter"
+                                value="falcon">
+                            Falcon
+                        </label>
+                    </div>
+                </aside>
+
+                <!-- Content Area -->
+                <div class="content-area">
+                    <div class="features" id="library-cards">
+                        <!-- Library cards will be injected here -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -59,11 +94,13 @@
             </div>
             <br>
             <div class="copyright">
-                <p>© 2025 CryptoCodex. All rights reserved.</p>
+                <p>© 2025 Bahagian Integrasi, Pusat Teknologi Dan Pengurusan Kriptologi Malaysia. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
     <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/filter.js"></script>
     <script type="module" src="../js/firebase-config.js"></script>
     <script type="module">
         import { fetchAndDisplayLibraries } from '../js/data-fetching.js';
