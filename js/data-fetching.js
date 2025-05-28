@@ -99,6 +99,11 @@ function renderLibraryCards(dataArray) {
     card.appendChild(title);
     card.appendChild(desc);
     if (badges.hasChildNodes()) card.appendChild(badges);
+
+    card.addEventListener('click', () => {
+      window.location.href = `details.html?id=${data.id}`;
+    });
+
     container.appendChild(card);
   });
 }
@@ -106,7 +111,7 @@ function renderLibraryCards(dataArray) {
 // Create visual badge for algorithm
 function createBadge(text) {
   const span = document.createElement('span');
-  span.className = 'badge';
+  span.className = 'algorithm-badge';
   span.textContent = text;
   return span;
 }
