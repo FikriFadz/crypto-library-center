@@ -157,6 +157,190 @@ nav {
     transform: translateY(-2px);
 }
 
+/* Add these styles to your existing CSS */
+
+/* Tabs */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1.5rem;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    position: relative;
+    transition: var(--transition);
+}
+
+.tab-button:hover {
+    color: var(--secondary-color);
+}
+
+.tab-button.active {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--secondary-color);
+}
+
+.tab-content {
+    display: none;
+    padding: 1rem 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Content styles */
+.library-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.library-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.library-header .subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Overview section */
+.overview-content {
+    line-height: 1.7;
+}
+
+/* Details section */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.detail-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Algorithms section */
+.algorithms-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.algorithms-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.algorithm-tag {
+    background: #e1f0fa;
+    color: var(--secondary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Limitations section */
+.limitation-item {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.limitation-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Installation section */
+.installation-step {
+    margin-bottom: 1.5rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.installation-step h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.installation-step code {
+    display: block;
+    background: #2c3e50;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+.installation-step p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* GitHub Section */
+.github-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.github-link:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    text-decoration: underline;
+}
+
+.github-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
 
 @keyframes spin {
     to {
