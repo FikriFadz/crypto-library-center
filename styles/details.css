@@ -18,10 +18,22 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: #f5f7fa;
     color: var(--dark-color);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Use viewport height as minimum */
+}
+
+.main-content {
+    flex: 1; /* This makes the content expand to push footer down */
+    padding-bottom: 1rem; /* Add some space above footer */
 }
 
 /* Navigation */
@@ -139,7 +151,7 @@ nav {
 .back-button {
     display: block;
     width: fit-content;
-    margin: 2rem auto 0;
+    margin: 2rem auto 3rem;
     padding: 0.7rem 2rem;
     background-color: var(--accent-color); /* red */
     color: white;
@@ -150,6 +162,7 @@ nav {
     border-radius: 50px;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    position: relative;
 }
 
 .back-button:hover {
@@ -312,6 +325,54 @@ nav {
     font-size: 0.9rem;
 }
 
+/* Testing Tab Styles: match installation-step design */
+.testing-content {
+    padding: 1rem;
+}
+
+.testing-item {
+    margin-bottom: 1.5rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.testing-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.testing-item code {
+    display: block;
+    background: #2c3e50;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+.testing-item p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.test-results {
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 4px;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.test-results pre {
+    white-space: pre-wrap;
+    font-family: monospace;
+    margin-top: 0.5rem;
+    color: #333;
+}
+
 /* GitHub Section */
 .github-section {
     margin-top: 1.5rem;
@@ -348,13 +409,71 @@ nav {
     }
 }
 
+/* Testing Images Section */
+.testing-images {
+    margin-top: 2rem;
+}
+
+.testing-images h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.testing-images-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.testing-image-item {
+    display: flex;
+    align-items: flex-start;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    gap: 1.5rem;
+    /* Optional: set a max-width for neatness */
+    max-width: 600px;
+}
+
+.testing-image-item img {
+    max-width: 220px;
+    max-height: 160px;
+    width: auto;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    object-fit: contain;
+    background: #ecf0f1;
+    /* margin-bottom: 0.5rem; REMOVE this line */
+    flex-shrink: 0;
+}
+
+.testing-image-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(52, 152, 219, 0.12);
+}
+
+.testing-image-explanation {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    align-self: center;
+    /* Optional: adjust width for better text wrapping */
+    max-width: 320px;
+}
+
+
 /* Footer */
 footer {
     background: var(--dark-color);
     color: white;
     text-align: center;
     padding: 2rem 0;
-    margin-top: 3rem;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
 }
 
 footer .container {
