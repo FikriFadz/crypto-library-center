@@ -27,7 +27,7 @@ function setupTabs() {
   });
 }
 
-// Format installation steps
+// Format installation steps with images
 function formatInstallationSteps(installationData) {
   if (!installationData) return 'No installation instructions available.';
 
@@ -48,6 +48,14 @@ function formatInstallationSteps(installationData) {
       <h4>Step ${index + 1}</h4>
       <code>${step.command}</code>
       <p>${step.explanation || 'No explanation provided'}</p>
+      ${step.imageURL ? `
+        <div class="installation-image-item">
+          <a href="${step.imageURL}" data-lightbox="installation-images" data-title="Step ${index + 1}">
+            <img src="${step.imageURL}" alt="Installation Step ${index + 1}" class="installation-image" />
+          </a>
+          <p class="installation-image-explanation">${step.imageExplanation || ''}</p>
+        </div>
+      ` : ''}
     </div>
   `).join('');
 }

@@ -461,6 +461,33 @@ nav {
   padding: 20px;
 }
 
+/* Installation Images */
+.installation-image-item {
+    margin-top: 1rem;
+}
+
+.installation-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.installation-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.installation-image-explanation {
+    margin-top: 0.5rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
 /* Footer */
 footer {
     background: var(--dark-color);
