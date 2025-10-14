@@ -16,18 +16,22 @@ export async function fetchAndDisplayLibraries() {
 
     snapshot.forEach(doc => {
       const data = doc.data();
-      data.id = doc.id;
+      
+      // Only include libraries where show is true or not defined (for backward compatibility)
+      if (data.show !== false) {
+        data.id = doc.id;
 
-      // Normalize data for filtering
-      data.normalizedName = data.name.toLowerCase();
-      const rawAlgos = data['pqc-algorithm'];
-      data.pqcAlgorithms = Array.isArray(rawAlgos)
-        ? rawAlgos.map(a => a.trim())
-        : typeof rawAlgos === 'string'
-          ? rawAlgos.split(',').map(a => a.trim())
-          : [];
+        // Normalize data for filtering
+        data.normalizedName = data.name.toLowerCase();
+        const rawAlgos = data['pqc-algorithm'];
+        data.pqcAlgorithms = Array.isArray(rawAlgos)
+          ? rawAlgos.map(a => a.trim())
+          : typeof rawAlgos === 'string'
+            ? rawAlgos.split(',').map(a => a.trim())
+            : [];
 
-      librariesData.push(data);
+        librariesData.push(data);
+      }
     });
 
     // Send the data to filter.js
